@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Contact } from './pages/Contact';
 import { PoetryGrid } from './components/PoetryGrid';
 import { poetryGridStructure } from './poetryGridStructure';
 import { FloatingMenu } from './components/FloatingMenu';
@@ -6,13 +8,13 @@ import { useRef, useEffect } from 'react';
 import { useScrollSpy } from './hooks/useScrollSpy';
 import { useWindowSize } from './hooks/useWindowSize';
 
-const App = () => {
+const PoetryGridPage = () => {
   const poetryGridRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const activeSlug = useScrollSpy(poetryGridRef);
   const { width } = useWindowSize();
-  const isMobile = width < 1680; // Adjust breakpoint as needed
-  const MENU_OFFSET = 47; // Adjust this value based on your menu height
+  const isMobile = width < 1680;
+  const MENU_OFFSET = 47;
 
   const scrollToPoem = (slug: string) => {
     const poemElement = poetryGridRef.current?.querySelector(`[data-poem-slug="${slug}"]`);
@@ -28,10 +30,19 @@ const App = () => {
   };
 
   useEffect(() => {
-    const hash = window.location.hash.slice(1);
-    if (hash) {
-      scrollToPoem(hash);
-    }
+    const timeoutId = setTimeout(() => {
+      const hash = window.location.hash.slice(1);
+      const pathParts = window.location.pathname.split('/');
+      const pathSlug = pathParts[pathParts.length - 1];
+      
+      const slugToScrollTo = hash || (pathSlug !== 'sarsa.art' ? pathSlug : '');
+      
+      if (slugToScrollTo) {
+        scrollToPoem(slugToScrollTo);
+      }
+    }, 100);
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   useEffect(() => {
@@ -61,6 +72,18 @@ const App = () => {
         <PoetryGrid structure={poetryGridStructure} isMobile={isMobile} />
       </div>
     </div>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/sarsa.art/" element={<PoetryGridPage />} />
+        <Route path="/sarsa.art/:slug" element={<PoetryGridPage />} />
+        <Route path="/sarsa.art/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 };
 

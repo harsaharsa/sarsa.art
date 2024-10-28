@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useWindowSize } from '../hooks/useWindowSize';
 import { poetryGridStructure } from '../poetryGridStructure';
 import { poems } from '../poems/poems';
+import { Link } from 'react-router-dom';
 
 interface FloatingMenuProps {
   onPoemSelect: (slug: string) => void;
@@ -40,14 +41,23 @@ export const FloatingMenu: React.FC<FloatingMenuProps> = ({ onPoemSelect, active
       />
       
       {/* Menu content */}
-      <div className="relative pt-3">
-        <button
-          onClick={toggleMenu}
-          style={{ paddingLeft: "16px", fontFamily: "Georgia", fontSize: "16px", lineHeight: "20px", color: "black" }}
-          className="text-gray-800"
-        >
-          POEMS
-        </button>
+      <div className="relative pt-3 flex gap-4">
+        <div className="w-full flex justify-between px-4">
+          <button
+            onClick={toggleMenu}
+            style={{ fontFamily: "Georgia", fontSize: "16px", lineHeight: "20px", color: "black" }}
+            className="text-gray-800"
+          >
+            POEMS
+          </button>
+          <Link
+            to="/sarsa.art/contact"
+            style={{ fontFamily: "Georgia", fontSize: "16px", lineHeight: "20px", color: "black" }}
+            className="text-gray-800"
+          >
+            CONTACT
+          </Link>
+        </div>
         {isOpen && (
           <ul className={`bg-white absolute p-4 overflow-y-auto ${
             isSingleColumn ? 'left-0 right-0 min-h-screen' : 'min-w-[200px]'
