@@ -1,9 +1,42 @@
 import React from 'react';
+import Lottie from 'react-lottie';
+import animationData from '../animations/logo_outlined.json';
 
-export const Logo: React.FC = () => (
-  <div className="logo flex justify-center items-center h-full w-full overflow-hidden">
-    <div className="w-full h-[400px] overflow-hidden flex justify-center items-center">
-      <img src="/images/logo.gif" alt="Logo" />
-    </div>
-  </div>
+interface AnimationProps {
+  width?: number;
+  height?: number;
+  className?: string;
+  isInline?: boolean;
+}
+
+export const Logo = React.forwardRef<HTMLDivElement, AnimationProps>(
+  ({ height = 400, className = '', isInline = false }, ref) => {
+    const defaultOptions = {
+      loop: true,
+      autoplay: true,
+      animationData: animationData,
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice',
+      },
+    };
+
+    return (
+      <div
+        className={`${className} ${isInline ? 'max-w-[840px] mx-auto' : 'fixed top-0 right-[840px] max-w-[840px]'}`}
+        ref={ref}
+        style={{
+          marginTop: '48px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          pointerEvents: isInline ? 'none' : 'auto',
+        }}
+      >
+        <Lottie
+          options={defaultOptions}
+          height={height}
+        />
+      </div>
+    );
+  }
 );

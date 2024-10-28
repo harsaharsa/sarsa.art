@@ -1,5 +1,83 @@
 export const poems = [
   {
+    slug: "a-burning-sensation",
+    title: "A Burning Sensation",
+    poem: [
+      [
+        "I dream a dream of desert dust on fierce, flawless fire",
+        "Neon strobo stutter makes mandalas on the ground",
+        "A shaman loads a drum-drum clip, dumb with desire",
+        "Riddles every body with her storm of bass-clad sound",
+      ],
+      [
+        "She lets the drop-droplets drop like beads of bubbling lava",
+        "An all-out ardour-avalanche, nothing left on storage-shelf",
+        "A sonic source of divine wine, prime consecrated cava",
+        "The kind you reach for all the way up on the Highest Self",
+      ],
+      [
+        "It's revved up, it's roaring, our Engine of Humanity",
+        "Groaning hard to keep its cool, pistons pumping perspiration",
+        "For most, this would be madness, this sweet, sweet sanity —",
+        "A propane flame explodes in Promethean inspiration",
+      ],
+      [
+        "Roaming through this rampant Eden —",
+        "I wonder, can I still take more —",
+        "Of life or of these acronyms —",
+        "Lacking love and leaking lust —",
+      ],
+      [
+        "Your smile hits like a sniper shot, one with a tungsten core",
+        "Grounds me hard and grounds my Kevlar into desert dust",
+      ],
+      [
+        "You take me by the hand and then you take me by the night",
+        "I wave a flag of whitest white, I shirk all sense of agency",
+        "It's curious, this lens of you, how it bends the light",
+        "A rose-red shift, a double rainbow,",
+        "Technicolor vibrancy",
+      ],
+      [
+        "Deep in depths of fractal grooves, a paradise is being founded",
+        "A dirty film of sweat and sunscreen covering the process",
+        "Our tarp-and-girder cauldron boils with alchemy unbounded",
+        "You split the ocean at my core like an Oppenheimer-Moses",
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "Then suddenly",
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "It's silent",
+        "",
+        "",
+        "",
+        "",
+      ],
+      [
+        "The beast is back in Bethlehem, for now, the centre held",
+        "In this absence of absurdity, a violin would feel violent",
+        "Waves of gold crash on your face — a visage well beheld",
+      ],
+      [
+        "Finally, the briefest blink, and so you're gone, my pillow-wisp",
+        "I draw in deep your fading fragrance — we made a kick-ass team",
+        "I exhale out the story — the morning air is crisp",
+        "In the slowly heating sand, I sense more dreams to dream",
+      ],
+    ],
+  },
+  {
     slug: "desert-queen-unchained",
     title: "Desert Queen Unchained",
     poem: [
@@ -880,7 +958,8 @@ export const poems = [
       [
         "Twinkle, twinkle",
         "You supermassive supernova",
-        "Know that there is at least one other celestial tbody",
+        "Know that there is at least",
+        "One other celestial body",
         "In your court and constellation",
         "At equal cosmic scale",
         "Also refusing to stop expanding",

@@ -3,10 +3,11 @@ import React from 'react';
 interface ImageProps {
   asset?: string;
   placeholder?: string;
+  slug?: string;
 }
 
-export const Image: React.FC<ImageProps> = ({ asset, placeholder }) => (
-  <div className="image">
+export const Image: React.FC<ImageProps> = ({ asset, placeholder, slug }) => (
+  <div className="image" data-poem-slug={slug}>
     {placeholder && (
       <div
         className="placeholder"
@@ -24,6 +25,6 @@ export const Image: React.FC<ImageProps> = ({ asset, placeholder }) => (
         {`${placeholder}px`}
       </div>
     )}
-    {asset && <img src={`/images/${asset}`} alt={asset} />}
+    {asset && <img src={`/sarsa.art/images/${asset}.jpg`} alt={asset} />}
   </div>
 );
