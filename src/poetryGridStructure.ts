@@ -16,13 +16,26 @@ export const poetryGridStructure: PoetryGridStructure = {
         {
           fraction: 2,
           type: "empty",
+          slug: "home"
+        },
+        {
+          fraction: 2,
+          type: "empty",
+          hideFirst: true,
+        }
+      ]
+    },
+    {
+      columns: [
+        {
+          fraction: 2,
+          type: "empty",
           hideFirst: true,
         },
         {
           fraction: 2,
           type: "image",
-          asset: "muscles",
-          slug: "home"
+          asset: "muscles"
         },
       ],
     },
