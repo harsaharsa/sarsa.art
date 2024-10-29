@@ -22,7 +22,7 @@ export const Logo = React.forwardRef<HTMLDivElement, AnimationProps>(
 
     return (
       <div
-        className={`${className} ${isInline ? 'max-w-[840px] mx-auto' : 'fixed top-0 right-[840px] max-w-[840px]'}`}
+        className={`${className} ${isInline ? 'mx-auto' : 'fixed top-0 right-[840px]'}`}
         ref={ref}
         style={{
           marginTop: '48px',
@@ -30,11 +30,14 @@ export const Logo = React.forwardRef<HTMLDivElement, AnimationProps>(
           justifyContent: 'center',
           alignItems: 'center',
           pointerEvents: isInline ? 'none' : 'auto',
+          width: '100%',
+          maxWidth: '840px'
         }}
       >
         <Lottie
           options={defaultOptions}
           height={height}
+          width="100%"
         />
       </div>
     );

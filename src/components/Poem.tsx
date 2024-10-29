@@ -4,17 +4,25 @@ import { poems } from '../poems/poems';
 interface PoemProps {
   slug?: string;
   textColor?: string;
+  isSingleColumn?: boolean;
 }
 
-export const Poem: React.FC<PoemProps> = ({ slug, textColor }) => {
+export const Poem: React.FC<PoemProps> = ({ slug, textColor, isSingleColumn }) => {
   const poem = poems.find((poem) => poem.slug === slug);
   return (
-    <div className="p-16 poem" data-poem-slug={slug}>
-      <h2 className="mb-4" style={{ fontFamily: "Georgia", fontSize: "40px", lineHeight: "48px", color: textColor }}>{poem?.title}</h2>
+    <div className={`poem ${isSingleColumn ? 'p-14' : 'p-16'}`} data-poem-slug={slug}>
+      <h2 className="mb-4" style={{ 
+        fontFamily: "Georgia", 
+        fontSize: isSingleColumn ? "32px" : "40px", 
+        lineHeight: isSingleColumn ? "40px" : "48px", 
+        color: textColor 
+      }}>{poem?.title}</h2>
       {poem?.poem.map((stanza, stanzaIndex) => (
-        <div key={stanzaIndex} className="mb-4">
+        <div key={stanzaIndex} className="mb-8">
           {stanza.map((line, lineIndex) => (
-            <p key={lineIndex} style={{ fontFamily: "Georgia", fontSize: "16px", lineHeight: "20px", color: textColor }}>{line}</p>
+            <p key={lineIndex} style={{ fontFamily: "Georgia", fontSize: "16px", lineHeight: "20px", color: textColor, marginBottom: "4px" }}
+              dangerouslySetInnerHTML={{ __html: line }}
+            />
           ))}
         </div>
       ))}

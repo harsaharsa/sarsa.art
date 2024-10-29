@@ -84,6 +84,11 @@ export const poetryGridStructure: PoetryGridStructure = {
         {
           fraction: 1,
           type: "empty",
+          backgroundColor: colors.black,
+        },
+        {
+          fraction: 1,
+          type: "empty",
           hideFirst: true,
         }
       ]
@@ -91,7 +96,12 @@ export const poetryGridStructure: PoetryGridStructure = {
     {
       columns: [
         {
-          fraction: 2,
+          fraction: 1,
+          type: "empty",
+          backgroundColor: colors.black,
+        },
+        {
+          fraction: 1,
           type: "poem",
           backgroundColor: colors.blue,
           textColor: colors.black,

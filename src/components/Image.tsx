@@ -25,6 +25,17 @@ export const Image: React.FC<ImageProps> = ({ asset, placeholder, slug }) => (
         {`${placeholder}px`}
       </div>
     )}
-    {asset && <img src={`/sarsa.art/images/${asset}.jpg`} alt={asset} />}
+    {asset && (
+      <img 
+        src={`/sarsa.art/images/${asset}.jpg`} 
+        alt={asset} 
+        style={{
+          width: '100%',
+          height: 'auto',
+          maxWidth: '100%',
+          display: 'block'
+        }}
+      />
+    )}
   </div>
 );

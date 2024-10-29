@@ -53,17 +53,24 @@ export const PoetryGrid: React.FC<PoetryGridProps> = ({ structure, isMobile }) =
       } else if (columnCount === 2) {
         // In two-column layout, adjust the columns
         let newColumns = [];
+        
+        // Filter out hideFirst columns first
+        const filteredColumns = columns.filter(col => !col.hideFirst);
+
+        console.log(filteredColumns);
 
         // If there are exactly two columns with fraction 1, keep them as is
-        const fractionOneColumns = columns.filter(col => col.fraction === 1);
+        const fractionOneColumns = filteredColumns.filter(col => col.fraction === 1);
 
-        if (columns.length === 2 && fractionOneColumns.length === 2) {
-          newColumns = columns;
+        if (filteredColumns.length === 2 && fractionOneColumns.length === 2) {
+          newColumns = filteredColumns;
+        } else if (filteredColumns.length === 1) {
+          newColumns = filteredColumns;
         } else {
           // Split the row into multiple rows each with two columns
-          for (let i = 0; i < columns.length; i += 2) {
-            const col1 = columns[i];
-            const col2 = columns[i + 1];
+          for (let i = 0; i < filteredColumns.length; i += 2) {
+            const col1 = filteredColumns[i];
+            const col2 = filteredColumns[i + 1];
 
             const adjustedCol1 = {
               ...col1,
@@ -105,6 +112,8 @@ export const PoetryGrid: React.FC<PoetryGridProps> = ({ structure, isMobile }) =
       }
     });
 
+    console.log(adjustedRows);
+
     return { rows: adjustedRows };
   };
 
@@ -139,12 +148,17 @@ export const PoetryGrid: React.FC<PoetryGridProps> = ({ structure, isMobile }) =
           width: '100%',
           overflowX: 'hidden',
           position: 'relative',
-          maxWidth: columnCount === 1 ? '100%' : 'none',
+          maxWidth: '100%', // Always limit to screen width
           gap: columnCount === 1 ? '200px' : '0px',
         }}
       >
         {processedStructure.rows.map((row, index) => (
-          <Row key={index} columns={row.columns} isMobile={isMobile} />
+          <Row 
+            key={index} 
+            columns={row.columns} 
+            isMobile={isMobile} 
+            isSingleColumn={columnCount === 1} 
+          />
         ))}
       </div>
     </div>

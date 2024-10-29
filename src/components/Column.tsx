@@ -14,10 +14,11 @@ export interface ColumnProps {
   textColor?: string;
   hideFirst?: boolean;
   slug?: string;
+  isSingleColumn?: boolean;
 }
 
-export const Column: React.FC<ColumnProps> = ({ fraction, type, asset, poem, backgroundColor, placeholder, textColor, slug }) => {
-  textColor = textColor || "black"; // Default to black text color
+export const Column: React.FC<ColumnProps> = ({ fraction, type, asset, poem, backgroundColor, placeholder, textColor, slug, isSingleColumn }) => {
+  textColor = textColor || "black";
   const renderContent = () => {
     switch (type) {
       case "logo":
@@ -25,7 +26,7 @@ export const Column: React.FC<ColumnProps> = ({ fraction, type, asset, poem, bac
       case "image":
         return <Image asset={asset} placeholder={placeholder} slug={slug} />;
       case "poem":
-        return <Poem slug={poem} textColor={textColor} />;
+        return <Poem slug={poem} textColor={textColor} isSingleColumn={isSingleColumn} />;
       case "empty":
       default:
         return <Empty backgroundColor={backgroundColor} />;
@@ -41,6 +42,9 @@ export const Column: React.FC<ColumnProps> = ({ fraction, type, asset, poem, bac
         minHeight: '400px',
         position: 'relative',
         zIndex: type === "poem" || type === "image" ? 2 : 0,
+        maxWidth: '100vw',
+        width: '100%',
+        overflow: 'hidden'
       }}
     >
       {renderContent()}
