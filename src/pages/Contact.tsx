@@ -18,14 +18,14 @@ export const Contact: React.FC = () => {
       <div className="min-h-screen p-16" style={{ fontFamily: "Georgia" }}>
         <h1 className="text-2xl pt-12 mb-4">Contact</h1>
         <p className="mb-4">
-          For inquiries, please contact Harri Sakari Sarsa at:
+          For inquiries on poetry, life, artistic collaboration, publishing, and so forth, please contact Harri Sakari Sarsa at:
         </p>
         <p className="mb-4">
           <a 
-            href="mailto:harri@sarsa.art"
+            href="mailto:harri.sarsa@gmail.com"
             className="text-blue-600 hover:text-blue-800 underline"
           >
-            harri@sarsa.art
+            harri.sarsa@gmail.com
           </a>
         </p>
       </div>
