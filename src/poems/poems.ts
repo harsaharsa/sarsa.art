@@ -1271,7 +1271,7 @@ export const poems = [
     poem: [
       [
         "Sunday service in furious force",
-        "The congregation gathers, concrete, the mass",
+        "The congregation gathered, concrete, the mass",
         "St. Nick stands guard at the cathedral doors",
         "Bare soul, not skin: that’s your free pass",
       ],
@@ -1294,7 +1294,7 @@ export const poems = [
         "Feel the blow: raw, uncut",
       ],
       [
-        "There’s a crackle in the air, it’s potent",
+        "There’s a crackle in the air: it’s potent",
         "You could eat the electricity",
         "Lascivious energy, simmering, latent",
         "In search of serendipity",
@@ -1320,7 +1320,7 @@ export const poems = [
       [
         "The surface still, still still",
         "Shift — sudden (subtle) TECTONIC",
-        "Theyre here; briefly, I feel ill",
+        "They’re here; briefly, I feel ill",
         "It says: “Don’t think me”, my gin’n’panic",
       ],
       [
