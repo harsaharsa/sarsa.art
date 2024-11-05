@@ -51,7 +51,7 @@ export const FloatingMenu: React.FC<FloatingMenuProps> = ({ onPoemSelect, active
             POEMS
           </button>
           <Link
-            to="/sarsa.art/contact"
+            to="/contact"
             style={{ fontFamily: "Georgia", fontSize: "16px", lineHeight: "20px", color: "black" }}
             className="text-gray-800"
           >

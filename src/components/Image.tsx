@@ -27,7 +27,7 @@ export const Image: React.FC<ImageProps> = ({ asset, placeholder, slug }) => (
     )}
     {asset && (
       <img 
-        src={`/sarsa.art/images/${asset}.jpg`} 
+        src={`/images/${asset}.jpg`} 
         alt={asset} 
         style={{
           width: '100%',

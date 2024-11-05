@@ -35,7 +35,7 @@ const PoetryGridPage = () => {
       const pathParts = window.location.pathname.split('/');
       const pathSlug = pathParts[pathParts.length - 1];
       
-      const slugToScrollTo = hash || (pathSlug !== 'sarsa.art' ? pathSlug : '');
+      const slugToScrollTo = hash || pathSlug;
       
       if (slugToScrollTo) {
         scrollToPoem(slugToScrollTo);
@@ -79,9 +79,9 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/sarsa.art/" element={<PoetryGridPage />} />
-        <Route path="/sarsa.art/:slug" element={<PoetryGridPage />} />
-        <Route path="/sarsa.art/contact" element={<Contact />} />
+        <Route path="/" element={<PoetryGridPage />} />
+        <Route path="/:slug" element={<PoetryGridPage />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );

@@ -57,8 +57,6 @@ export const PoetryGrid: React.FC<PoetryGridProps> = ({ structure, isMobile }) =
         // Filter out hideFirst columns first
         const filteredColumns = columns.filter(col => !col.hideFirst);
 
-        console.log(filteredColumns);
-
         // If there are exactly two columns with fraction 1, keep them as is
         const fractionOneColumns = filteredColumns.filter(col => col.fraction === 1);
 
@@ -111,8 +109,6 @@ export const PoetryGrid: React.FC<PoetryGridProps> = ({ structure, isMobile }) =
         });
       }
     });
-
-    console.log(adjustedRows);
 
     return { rows: adjustedRows };
   };

@@ -6,7 +6,7 @@ export const Contact: React.FC = () => {
   const navigate = useNavigate();
 
   const handleBackToPoems = (slug: string) => {
-    navigate('/sarsa.art/');
+    navigate('/');
     setTimeout(() => {
       window.location.hash = slug;
     }, 0);
